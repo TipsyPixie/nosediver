@@ -1,12 +1,25 @@
+# Gradle settings
 .gradle
-/build/
-/out/
+
+# Keep the wrapper
 !gradle/wrapper/gradle-wrapper.jar
 
-### IntelliJ IDEA ###
+# Output files
+/build/
+/out/
+/bin/
+
+# IDEA settings
 .idea
 *.iws
 *.iml
 *.ipr
 
+# Eclipse settings
+.settings
+.classpath
+.project
+
+# Keep the sample property file instead of the real one
 src/main/resources/application.properties
+!src/main/resources/application.properties.sample
