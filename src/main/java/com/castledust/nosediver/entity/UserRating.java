@@ -1,6 +1,10 @@
 package com.castledust.nosediver.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 @Entity
@@ -12,7 +16,7 @@ public class UserRating {
     private Long id;
 
     @OneToOne
-    private User user;
+    private UserInfo user;
 
     private Float rating;
 
@@ -24,11 +28,11 @@ public class UserRating {
         this.id = id;
     }
 
-    public User getUser() {
+    public UserInfo getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserInfo user) {
         this.user = user;
     }
 

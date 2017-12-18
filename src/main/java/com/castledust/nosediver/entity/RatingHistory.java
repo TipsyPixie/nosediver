@@ -1,7 +1,13 @@
 package com.castledust.nosediver.entity;
 
-import javax.persistence.*;
 import java.sql.Time;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 @Entity
@@ -14,11 +20,11 @@ public class RatingHistory {
 
     private Time occurrenceTime;
 
-    @ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
-    private User rater;
+    @ManyToOne(targetEntity = UserInfo.class, cascade = CascadeType.ALL)
+    private UserInfo rater;
 
-    @ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
-    private User ratee;
+    @ManyToOne(targetEntity = UserInfo.class, cascade = CascadeType.ALL)
+    private UserInfo ratee;
 
     private Float rating;
 
@@ -38,19 +44,19 @@ public class RatingHistory {
         this.occurrenceTime = occurrenceTime;
     }
 
-    public User getRater() {
+    public UserInfo getRater() {
         return rater;
     }
 
-    public void setRater(User rater) {
+    public void setRater(UserInfo rater) {
         this.rater = rater;
     }
 
-    public User getRatee() {
+    public UserInfo getRatee() {
         return ratee;
     }
 
-    public void setRatee(User ratee) {
+    public void setRatee(UserInfo ratee) {
         this.ratee = ratee;
     }
 

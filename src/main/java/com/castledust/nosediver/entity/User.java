@@ -1,75 +1,75 @@
 package com.castledust.nosediver.entity;
 
+import java.sql.Time;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Date;
-
 
 @Entity
-@Table(name = "users")
+@Table(name="users")
 public class User {
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	private String userName;
+	
+	private String encryptedPassword;
+	
+	private String role;
+	
+	private Boolean enabled;
+	
+	private Time registerTime;
 
-    @Id
-    @GeneratedValue
-    private Long id;
+	public Long getId() {
+		return id;
+	}
 
-    private String username;
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    private String hashedPassword;
+	public String getUserName() {
+		return userName;
+	}
 
-    private String name;
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    private Date birthday;
+	public String getEncryptedPassword() {
+		return encryptedPassword;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public void setEncryptedPassword(String encryptedPassword) {
+		this.encryptedPassword = encryptedPassword;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public Time getRegisterTime() {
+		return registerTime;
+	}
 
-    public String getHashedPassword() {
-        return hashedPassword;
-    }
+	public void setRegisterTime(Time registerTime) {
+		this.registerTime = registerTime;
+	}
 
-    public void setHashedPassword(String hashedPassword) {
-        this.hashedPassword = hashedPassword;
-    }
+	public Boolean getEnabled() {
+		return enabled;
+	}
 
-    public Long getId() {
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
 
-        return id;
-    }
+	public String getRole() {
+		return role;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", birthday=" + birthday +
-                '}';
-    }
+	public void setRole(String role) {
+		this.role = role;
+	}
 }

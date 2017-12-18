@@ -1,8 +1,11 @@
 package com.castledust.nosediver.repository;
 
-import com.castledust.nosediver.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.castledust.nosediver.entity.User;
 
 
 public interface UserRepository extends JpaRepository<User, Long> {
+	
+	public User findByUserName(String userName);
 }
