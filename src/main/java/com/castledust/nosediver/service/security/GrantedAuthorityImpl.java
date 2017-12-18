@@ -12,7 +12,7 @@ public class GrantedAuthorityImpl implements GrantedAuthority {
 	
 	public GrantedAuthorityImpl(String authority) {
 		
-		this.authority = authority;
+		this.authority = "ROLE_" + authority.toUpperCase();
 	}
 
 	@Override
