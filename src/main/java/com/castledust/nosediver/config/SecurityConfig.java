@@ -1,8 +1,8 @@
 package com.castledust.nosediver.config;
 
 
-import java.security.NoSuchAlgorithmException;
-
+import com.castledust.nosediver.service.security.PasswordEncoderImpl;
+import com.castledust.nosediver.service.security.VaadinSessionSecurityContextHolderStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,16 +14,21 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.castledust.nosediver.service.security.PasswordEncoderImpl;
+import java.security.NoSuchAlgorithmException;
 
 @Configuration
 @EnableWebSecurity
 @PropertySource(value="classpath:constants.properties")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
+    static {
+        SecurityContextHolder.setStrategyName(VaadinSessionSecurityContextHolderStrategy.class.getName());
+    }
+
 	@Autowired
 	@Qualifier(value="customUserDetailsService")
 	UserDetailsService userDetailsService;
