@@ -20,11 +20,11 @@ public class RatingHistory {
 
     private Time occurrenceTime;
 
-    @ManyToOne(targetEntity = UserInfo.class, cascade = CascadeType.ALL)
-    private UserInfo rater;
+    @ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
+    private User rater;
 
-    @ManyToOne(targetEntity = UserInfo.class, cascade = CascadeType.ALL)
-    private UserInfo ratee;
+    @ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
+    private User ratee;
 
     private Float rating;
 
@@ -44,23 +44,23 @@ public class RatingHistory {
         this.occurrenceTime = occurrenceTime;
     }
 
-    public UserInfo getRater() {
-        return rater;
-    }
+    public User getRater() {
+		return rater;
+	}
 
-    public void setRater(UserInfo rater) {
-        this.rater = rater;
-    }
+	public void setRater(User rater) {
+		this.rater = rater;
+	}
 
-    public UserInfo getRatee() {
-        return ratee;
-    }
+	public User getRatee() {
+		return ratee;
+	}
 
-    public void setRatee(UserInfo ratee) {
-        this.ratee = ratee;
-    }
+	public void setRatee(User ratee) {
+		this.ratee = ratee;
+	}
 
-    public Float getRating() {
+	public Float getRating() {
         return rating;
     }
 

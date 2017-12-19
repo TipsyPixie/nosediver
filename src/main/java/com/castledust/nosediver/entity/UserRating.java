@@ -16,9 +16,9 @@ public class UserRating {
     private Long id;
 
     @OneToOne
-    private UserInfo user;
+    private User user;
 
-    private Float rating;
+    private Float averageRating;
 
     public Long getId() {
         return id;
@@ -28,19 +28,19 @@ public class UserRating {
         this.id = id;
     }
 
-    public UserInfo getUser() {
-        return user;
-    }
+    public User getUser() {
+		return user;
+	}
 
-    public void setUser(UserInfo user) {
-        this.user = user;
-    }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-    public Float getRating() {
-        return rating;
+	public Float getRating() {
+        return averageRating;
     }
 
     public void setRating(Float rating) {
-        this.rating = rating;
+        this.averageRating = rating;
     }
 }

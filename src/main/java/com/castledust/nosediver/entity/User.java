@@ -17,11 +17,13 @@ public class User {
 	
 	private String userName;
 	
-	private String encryptedPassword;
+	private String password;
 	
 	private String role;
 	
-	private Boolean enabled;
+	private String name;
+	
+	private Integer age;
 	
 	private Time registerTime;
 
@@ -41,12 +43,20 @@ public class User {
 		this.userName = userName;
 	}
 
-	public String getEncryptedPassword() {
-		return encryptedPassword;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setEncryptedPassword(String encryptedPassword) {
-		this.encryptedPassword = encryptedPassword;
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public Time getRegisterTime() {
@@ -57,19 +67,19 @@ public class User {
 		this.registerTime = registerTime;
 	}
 
-	public Boolean getEnabled() {
-		return enabled;
+	public String getName() {
+		return name;
 	}
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getRole() {
-		return role;
+	public Integer getAge() {
+		return age;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 }
