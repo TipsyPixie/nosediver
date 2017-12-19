@@ -2,5 +2,5 @@ package com.castledust.nosediver.service.security;
 
 public interface SecurityUtil {
 
-	boolean auth(String userName, String password);
+    boolean auth(String userName, String password);
 }

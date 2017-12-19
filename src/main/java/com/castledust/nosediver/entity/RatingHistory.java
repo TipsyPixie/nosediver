@@ -1,13 +1,7 @@
 package com.castledust.nosediver.entity;
 
+import javax.persistence.*;
 import java.sql.Time;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 
 @Entity
@@ -26,6 +20,7 @@ public class RatingHistory {
     @ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
     private User ratee;
 
+    @Column(nullable = false)
     private Float rating;
 
     public Long getId() {
@@ -45,22 +40,22 @@ public class RatingHistory {
     }
 
     public User getRater() {
-		return rater;
-	}
+        return rater;
+    }
 
-	public void setRater(User rater) {
-		this.rater = rater;
-	}
+    public void setRater(User rater) {
+        this.rater = rater;
+    }
 
-	public User getRatee() {
-		return ratee;
-	}
+    public User getRatee() {
+        return ratee;
+    }
 
-	public void setRatee(User ratee) {
-		this.ratee = ratee;
-	}
+    public void setRatee(User ratee) {
+        this.ratee = ratee;
+    }
 
-	public Float getRating() {
+    public Float getRating() {
         return rating;
     }
 

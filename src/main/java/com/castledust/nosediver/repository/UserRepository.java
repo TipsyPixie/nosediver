@@ -1,10 +1,10 @@
 package com.castledust.nosediver.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.castledust.nosediver.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    User findTopByUserName(String userName);
 }

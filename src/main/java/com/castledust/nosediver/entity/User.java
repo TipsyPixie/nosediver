@@ -1,85 +1,83 @@
 package com.castledust.nosediver.entity;
 
+import javax.persistence.*;
 import java.sql.Time;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
-	
-	@Id
-	@GeneratedValue
-	private Long id;
-	
-	private String userName;
-	
-	private String password;
-	
-	private String role;
-	
-	private String name;
-	
-	private Integer age;
-	
-	private Time registerTime;
 
-	public Long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(unique = true, nullable = false)
+    private String userName;
 
-	public String getUserName() {
-		return userName;
-	}
+    @Column(nullable = false)
+    private String encodedPassword;
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    private String role;
 
-	public String getPassword() {
-		return password;
-	}
+    private String name;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    private Integer age;
 
-	public String getRole() {
-		return role;
-	}
+    private Time registerTime;
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public Time getRegisterTime() {
-		return registerTime;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setRegisterTime(Time registerTime) {
-		this.registerTime = registerTime;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getEncodedPassword() {
+        return encodedPassword;
+    }
 
-	public Integer getAge() {
-		return age;
-	}
+    public void setEncodedPassword(String encodedPassword) {
+        this.encodedPassword = encodedPassword;
+    }
 
-	public void setAge(Integer age) {
-		this.age = age;
-	}
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Time getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime(Time registerTime) {
+        this.registerTime = registerTime;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 }

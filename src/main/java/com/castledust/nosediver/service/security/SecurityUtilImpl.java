@@ -1,18 +1,25 @@
 package com.castledust.nosediver.service.security;
 
-import org.springframework.stereotype.Service;
-
+import com.castledust.nosediver.entity.User;
 import com.castledust.nosediver.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class SecurityUtilImpl implements SecurityUtil {
 
-	private UserRepository userRepository;
-	
-	@Override
-	public boolean auth(String userName, String password) {
-		
-		
-		return false;
-	}
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private StringEncoder stringEncoder;
+
+    @Override
+    public boolean auth(String userName, String password) {
+
+        User user = userRepository.findTopByUserName(userName);
+
+        return (user != null &&
+                user.getEncodedPassword().equals(stringEncoder.encode(password)));
+    }
 }

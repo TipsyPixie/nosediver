@@ -1,10 +1,6 @@
 package com.castledust.nosediver.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -16,8 +12,10 @@ public class UserRating {
     private Long id;
 
     @OneToOne
+    @Column(unique = true, nullable = false)
     private User user;
 
+    @Column(nullable = false)
     private Float averageRating;
 
     public Long getId() {
@@ -29,14 +27,14 @@ public class UserRating {
     }
 
     public User getUser() {
-		return user;
-	}
+        return user;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	public Float getRating() {
+    public Float getRating() {
         return averageRating;
     }
 
