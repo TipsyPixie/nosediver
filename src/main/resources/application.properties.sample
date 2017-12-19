@@ -1,9 +1,11 @@
 spring.datasource.type=com.zaxxer.hikari.HikariDataSource
 spring.datasource.url=jdbc:postgresql://HOST:PORT/postgres
 spring.datasource.username=USERNAME
-spring.datasource.encodedPassword=PASSWORD
+spring.datasource.password=PASSWORD
 
 spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=create
 
 vaadin.servlet.production-mode=false
+
+logging.level.root=debug
