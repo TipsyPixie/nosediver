@@ -7,5 +7,3 @@ spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=create
 
 vaadin.servlet.production-mode=false
-
-logging.level.root=debug

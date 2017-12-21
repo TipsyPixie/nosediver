@@ -11,8 +11,7 @@ public class UserRating {
     @Id
     private Long id;
 
-    @OneToOne
-    @Column(unique = true, nullable = false)
+    @OneToOne(targetEntity = User.class, cascade = CascadeType.ALL)
     private User user;
 
     @Column(nullable = false)
