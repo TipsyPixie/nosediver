@@ -1,11 +1,9 @@
 package com.castledust.nosediver.service.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
-
 import com.castledust.nosediver.entity.User;
 import com.castledust.nosediver.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class SecurityUtilImpl implements SecurityUtil {
@@ -14,7 +12,7 @@ public class SecurityUtilImpl implements SecurityUtil {
     private UserRepository userRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private StringDigesterImpl stringDigester;
 
     @Override
     public boolean auth(String userName, String password) {
@@ -22,6 +20,6 @@ public class SecurityUtilImpl implements SecurityUtil {
         User user = userRepository.findTopByUserName(userName);
 
         return user != null &&
-                passwordEncoder.matches(password, user.getEncodedPassword());
+                user.getEncodedPassword().equals(stringDigester.encode(password));
     }
 }
