@@ -28,7 +28,7 @@ configurations {
 }
 
 ext {
-	vaadinVersion = '8.1.7'
+	vaadinVersion = '8.2.0'
 }
 
 dependencies {

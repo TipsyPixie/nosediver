@@ -20,7 +20,7 @@ public class Login extends VerticalLayout implements View {
             String passwordInput = passwordField.getValue();
 
             if(securityUtil.auth(usernameInput, passwordInput)) {
-                VaadinSession.getCurrent().setAttribute("user", usernameInput);
+                VaadinSession.getCurrent().setAttribute("username", usernameInput);
             }
             else {
                 Notification.show("Wrong username/password");
