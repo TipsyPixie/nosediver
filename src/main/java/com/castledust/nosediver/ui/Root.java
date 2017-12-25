@@ -1,6 +1,5 @@
 package com.castledust.nosediver.ui;
 
-import com.castledust.nosediver.repository.UserRepository;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
@@ -16,32 +15,32 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource(value = "classpath:constants.properties")
 public class Root extends UI {
 
+    public static final String SESSION_USERNAME = "username";
     private static final long serialVersionUID = 1L;
-
     private static final Logger logger = LoggerFactory.getLogger(Root.class);
-
     @Value("${nosediver.title}")
     private String title;
 
     @Autowired
-    private UserRepository userRepository;
+    Navigator navigator;
 
     @Override
     protected void init(VaadinRequest request) {
 
         Page page = getPage();
         page.setTitle(title);
-        page.addPopStateListener(event -> {
+        page.addPopStateListener(this::onUriChange);
 
-        });
-
-
-        Navigator navigator = getNavigator();
-        navigator.addView(Login.class.getName(), Login.class);
+        navigator.setErrorView(Login.class);
+        navigator.addView(Login.VIEW_NAME, Login.class);
     }
 
-    private void uriChanged(Page.PopStateEvent popStateEvent) {
+    private void onUriChange(Page.PopStateEvent popStateEvent) {
 
-        //TODO: uri fragment change event
+        if (getSession().getAttribute(SESSION_USERNAME) != null) {
+            getNavigator().navigateTo(popStateEvent.getPage().getUriFragment());
+        } else {
+            getNavigator().navigateTo(Login.VIEW_NAME);
+        }
     }
 }
