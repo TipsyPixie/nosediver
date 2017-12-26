@@ -1,6 +1,7 @@
 package com.castledust.nosediver.ui;
 
 import com.castledust.nosediver.service.security.SecurityUtil;
+import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinSession;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.*;
@@ -11,7 +12,7 @@ import org.springframework.context.annotation.Scope;
 
 @SpringView(name = Login.VIEW_NAME)
 @Scope(value = "prototype")
-public class Login extends VerticalLayout implements SecureView {
+public class Login extends VerticalLayout implements View {
 
     private static final Logger logger = LoggerFactory.getLogger(Login.class);
 
@@ -42,10 +43,5 @@ public class Login extends VerticalLayout implements SecureView {
         Panel loginPanel = new Panel(loginForm);
         this.addComponent(loginPanel);
         this.setComponentAlignment(loginPanel, Alignment.MIDDLE_CENTER);
-    }
-
-    @Override
-    public boolean needAuth() {
-        return true;
     }
 }
